@@ -1,3 +1,6 @@
+datalogger.onLogFull(function () {
+    logging = 3
+})
 input.onButtonPressed(Button.A, function () {
     if (logging == 0) {
         basic.showLeds(`
@@ -53,6 +56,15 @@ loops.everyInterval(1000, function () {
             . . # . .
             . # . # .
             # . . . #
+            `)
+    }
+    if (logging == 3) {
+        basic.showLeds(`
+            . . . . #
+            . . . # #
+            . . # # #
+            . # # # #
+            # # # # #
             `)
     }
 })
