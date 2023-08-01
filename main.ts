@@ -12,7 +12,11 @@ input.onButtonPressed(Button.A, function () {
             `)
         datalogger.deleteLog(datalogger.DeleteType.Full)
         datalogger.mirrorToSerial(true)
-        datalogger.setColumnTitles("T_AIR")
+        datalogger.setColumnTitles(
+        "T_AIR",
+        "LIGHT",
+        "ACCEL"
+        )
         datalogger.includeTimestamp(FlashLogTimeStampFormat.Seconds)
         logging = 1
     }
@@ -40,7 +44,11 @@ loops.everyInterval(1000, function () {
             . # # # .
             . . # . .
             `)
-        datalogger.log(datalogger.createCV("T_AIR", input.temperature()))
+        datalogger.log(
+        datalogger.createCV("T_AIR", input.temperature()),
+        datalogger.createCV("LIGHT", input.lightLevel()),
+        datalogger.createCV("ACCEL", input.acceleration(Dimension.X))
+        )
         basic.showLeds(`
             . # . # .
             # . # . #
