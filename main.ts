@@ -47,7 +47,7 @@ loops.everyInterval(1000, function () {
         datalogger.log(
         datalogger.createCV("T_AIR", input.temperature()),
         datalogger.createCV("LIGHT", input.lightLevel()),
-        datalogger.createCV("ACCEL", input.acceleration(Dimension.X))
+        datalogger.createCV("ACCEL", input.acceleration(Dimension.Strength))
         )
         basic.showLeds(`
             . # . # .
